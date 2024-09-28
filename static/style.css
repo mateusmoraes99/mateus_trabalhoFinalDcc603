@@ -152,3 +152,58 @@ th {
 .amarelo { background-color: #fff9c4; }  /* Amarelo claro */
 .vermelho { background-color: #ffcdd2; }  /* Vermelho claro */
 
+/* Estilos gerais do formulário */
+form {
+    background-color: #f9f9f9; /* Fundo claro */
+    border: 1px solid #ddd; /* Borda cinza clara */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    margin: 20px 0; /* Margem externa */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo dos rótulos */
+form label {
+    font-weight: bold; /* Texto em negrito */
+    display: block; /* Exibir como bloco */
+    margin-bottom: 8px; /* Espaçamento abaixo do rótulo */
+}
+
+/* Estilo dos campos de entrada */
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form select {
+    width: 100%; /* Largura total */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 15px; /* Espaçamento abaixo do campo */
+    border: 1px solid #ccc; /* Borda cinza */
+    border-radius: 4px; /* Bordas arredondadas */
+    transition: border-color 0.3s; /* Transição suave para a cor da borda */
+}
+
+/* Estilo do campo quando focado */
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="date"]:focus,
+form select:focus {
+    border-color: #007bff; /* Cor da borda ao focar */
+    outline: none; /* Remove o contorno padrão */
+}
+
+/* Estilo dos botões */
+button {
+    background-color: #007bff; /* Cor de fundo azul */
+    color: white; /* Texto branco */
+    padding: 10px 15px; /* Espaçamento interno */
+    border: none; /* Remove a borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+/* Estilo do botão ao passar o mouse */
+button:hover {
+    background-color: #0056b3; /* Cor de fundo mais escura ao passar o mouse */
+}
