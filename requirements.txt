@@ -1,0 +1,7 @@
+Flask==2.2.2
+Flask-WTF==1.0.1
+Flask-Bootstrap==3.3.7.1
+matplotlib==3.7.1
+numpy==1.24.3
+pandas==2.0.3
+sqlite3  # sqlite3 é parte da biblioteca padrão do Python, não precisa ser instalada separadamente
