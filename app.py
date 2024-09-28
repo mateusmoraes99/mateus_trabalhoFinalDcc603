@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
@@ -79,6 +79,39 @@ def add_product():
     conn.close()
     
     return redirect('/')
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+def edit_product(id):
+    conn = get_db_connection()
+    product = conn.execute('SELECT * FROM produtos WHERE id = ?', (id,)).fetchone()
+
+    if request.method == 'POST':
+        nome = request.form['nome']
+        categoria = request.form['categoria']
+        preco = request.form['preco']
+        quantidade = request.form['quantidade']
+        data_fabricacao = request.form['data_fabricacao']
+        validade = request.form['validade']
+        descricao = request.form['descricao']
+
+        conn.execute('''UPDATE produtos SET nome = ?, categoria = ?, preco = ?, quantidade = ?, 
+                        data_fabricacao = ?, validade = ?, descricao = ? WHERE id = ?''',
+                     (nome, categoria, preco, quantidade, data_fabricacao, validade, descricao, id))
+        conn.commit()
+        conn.close()
+        return redirect(url_for('index'))
+
+    conn.close()
+    return render_template('edit_product.html', product=product)
+
+# Rota para remover produto
+@app.route('/delete/<int:id>', methods=['POST'])
+def delete_product(id):
+    conn = get_db_connection()
+    conn.execute('DELETE FROM produtos WHERE id = ?', (id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('index'))
+
 
 @app.route('/graficos')
 def graficos():
