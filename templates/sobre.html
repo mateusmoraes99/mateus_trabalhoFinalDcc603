@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Sistema</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+       
+        h1 {
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sobre o Sistema</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/produtos">Produtos</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                    <li><a href="/graficos">graficos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h2>Descrição do Sistema</h2>
+        <p style="font-family: Arial; text-align: justify;">
+            Este sistema de controle de estoque foi desenvolvido para gerenciar a
+            entrada e saída de produtos em um supermercado. Ele permite o registro
+            de produtos, visualização de informações, e gerenciamento de estoque
+            de forma eficiente e prática.
+        </p>
+        <p style="font-family: Arial; text-align: justify;">
+            Você pode visualizar a lista de produtos, verificar a quantidade em estoque,
+            e consultar informações sobre cada item. O sistema é de fácil utilização e
+            foi projetado para otimizar a gestão de produtos.
+        </p>
+        <p style="font-family: Arial; text-align: justify;">
+            Repositório do projeto: 
+            <a href="https://github.com/mateusmoraes99/mateus_trabalhoFinalDcc603.git">GitHub</a>
+        </p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Meu Sistema de Controle de Estoque</p>
+    </footer>
+</body>
+</html>

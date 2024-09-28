@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .verde { background-color: #c8e6c9; }  /* Verde claro */
+        .amarelo { background-color: #fff9c4; }  /* Amarelo claro */
+        .vermelho { background-color: #ffcdd2; }  /* Vermelho claro */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Lista de Produtos</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/produtos">Produtos</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                    <li><a href="/graficos">graficos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <form method="GET" action="{{ url_for('produtos') }}">
+            <input type="text" name="search" placeholder="Buscar produtos..." value="{{ search_query }}">
+            <select name="cor">
+                <option value="">Todas as cores</option>
+                <option value="verde" {% if cor_filtro == 'verde' %}selected{% endif %}>Verde</option>
+                <option value="amarelo" {% if cor_filtro == 'amarelo' %}selected{% endif %}>Amarelo</option>
+                <option value="vermelho" {% if cor_filtro == 'vermelho' %}selected{% endif %}>Vermelho</option>
+            </select>
+            <input type="submit" value="Buscar">
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Descrição</th>
+                    <th>Data de Fabricação</th>
+                    <th>Validade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto, cor in produtos %}
+                <tr class="{{ cor }}">
+                    <td>{{ produto[0] }}</td>
+                    <td>{{ produto[1] }}</td>
+                    <td>{{ produto[2] }}</td>
+                    <td>{{ produto[3] }}</td>
+                    <td>{{ produto[4] }}</td>
+                    <td>{{ produto[5] }}</td>
+                    <td>{{ produto[6] }}</td>
+                    <td>{{ produto[7] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Meu Sistema de Controle de Estoque</p>
+    </footer>
+</body>
+</html>

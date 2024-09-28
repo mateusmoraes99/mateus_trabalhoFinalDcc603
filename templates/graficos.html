@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>p {
+    margin: 20px 0; /* Aumenta a margem superior e inferior */
+    width: 500px;
+    background-color: rgb(41, 73, 218);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color:white;
+    text-align: center;
+ }
+</style>
+   
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Gráficos de Controle de Estoque</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/produtos">Produtos</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                    <li><a href="/graficos">Gráficos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Gráfico de Dispersão: Preço vs Quantidade</h2>
+        <img src="data:image/png;base64,{{ img_data_dispersao }}" alt="Gráfico de Dispersão">
+        <p>Este gráfico de dispersão mostra a relação entre o preço e a quantidade dos produtos disponíveis. Um padrão visual pode ajudar a identificar como o preço influencia a quantidade em estoque.</p>
+        <p><strong>Legenda:</strong> Cada ponto representa um produto. O eixo X representa o preço em reais, enquanto o eixo Y representa a quantidade disponível no estoque.</p>
+
+        <h2>Evolução do Estoque ao Longo do Tempo</h2>
+        <img src="data:image/png;base64,{{ img_data_area }}" alt="Gráfico de Área">
+        <p>Este gráfico de área representa a evolução do estoque ao longo do tempo, permitindo visualizar como a quantidade de produtos varia em diferentes datas. É útil para entender tendências de consumo.</p>
+        <p><strong>Legenda:</strong> A área sob a linha mostra o total de produtos disponíveis em cada data registrada.</p>
+
+        <h2>Histograma: Distribuição de Preços</h2>
+        <img src="data:image/png;base64,{{ img_data_histograma }}" alt="Histograma de Preços">
+        <p>O histograma exibe a distribuição dos preços dos produtos, permitindo identificar faixas de preço que são mais comuns. Isso pode auxiliar na estratégia de precificação.</p>
+        <p><strong>Legenda:</strong> As barras representam a frequência de produtos em diferentes intervalos de preço.</p>
+
+        <h2>Distribuição de Categorias de Produtos</h2>
+        <img src="data:image/png;base64,{{ img_data_pizza }}" alt="Gráfico de Pizza">
+        <p>Este gráfico de pizza mostra a distribuição das categorias de produtos disponíveis no estoque. É uma forma eficaz de visualizar quais categorias são mais representativas.</p>
+        <p><strong>Legenda:</strong> Cada fatia do gráfico representa a proporção de produtos em cada categoria.</p>
+
+        <h2>Tendência do Preço Médio ao Longo do Tempo</h2>
+        <img src="data:image/png;base64,{{ img_data_linha }}" alt="Gráfico de Linhas">
+        <p>O gráfico de linhas mostra a tendência do preço médio dos produtos ao longo do tempo. Isso é crucial para entender como os preços estão se comportando.</p>
+        <p><strong>Legenda:</strong> O eixo X representa o tempo, enquanto o eixo Y representa o preço médio em reais.</p>
+
+        <h2>Quantidade Total por Categoria</h2>
+        <img src="data:image/png;base64,{{ img_data_barras }}" alt="Gráfico de Barras">
+        <p>Este gráfico de barras ilustra a quantidade total de produtos por categoria, ajudando a identificar quais categorias têm mais produtos em estoque.</p>
+        <p><strong>Legenda:</strong> Cada barra representa a quantidade total de produtos dentro de cada categoria.</p>
+
+        <div class="alert alert-info">
+            <h3>Item Mais Lucrativo</h3>
+            <p><strong>Nome:</strong> {{ item_nome }}</p>
+            <p><strong>Categoria:</strong> {{ item_categoria }}</p>
+            <p><strong>Preço:</strong> R$ {{ item_preco }}</p>
+            <p><strong>Quantidade em Estoque:</strong> {{ item_quantidade }}</p>
+            <p><strong>Lucro:</strong> R$ {{ item_lucro }}</p>
+            <p><strong>Descrição:</strong> {{ item_descricao }}</p>
+            <p><strong>Data de Fabricação:</strong> {{ item_data_fabricacao }}</p>
+            <p><strong>Validade:</strong> {{ item_validade }}</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Controle de Estoque</p>
+    </footer>
+</body>
+</html>
