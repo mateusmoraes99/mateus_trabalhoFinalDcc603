@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Produtos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        .verde { background-color: #c8e6c9; }  /* Verde claro */
-        .amarelo { background-color: #fff9c4; }  /* Amarelo claro */
-        .vermelho { background-color: #ffcdd2; }  /* Vermelho claro */
-    </style>
 </head>
 <body>
     <header>
@@ -21,7 +16,7 @@
                     <li><a href="/produtos">Produtos</a></li>
                     <li><a href="/sobre">Sobre</a></li>
                     <li><a href="/contato">Contato</a></li>
-                    <li><a href="/graficos">graficos</a></li>
+                    <li><a href="/graficos">Gráficos</a></li>
                 </ul>
             </nav>
         </div>
@@ -50,6 +45,7 @@
                     <th>Descrição</th>
                     <th>Data de Fabricação</th>
                     <th>Validade</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -63,6 +59,16 @@
                     <td>{{ produto[5] }}</td>
                     <td>{{ produto[6] }}</td>
                     <td>{{ produto[7] }}</td>
+                    <td>
+                        <!-- Formulário para exclusão do produto -->
+                        <form action="{{ url_for('delete_product', id=produto[0]) }}" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-excluir">Excluir</button>
+                        </form>
+                        <!-- Formulário para editar o produto -->
+                        <form action="{{ url_for('edit_product', id=produto[0]) }}" method="GET" style="display: inline;">
+                            <button type="submit" class="btn btn-editar">Editar</button>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
